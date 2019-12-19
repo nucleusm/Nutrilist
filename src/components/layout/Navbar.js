@@ -7,10 +7,11 @@ export class Navbar extends Component {
       <nav>
         <ul>
           <Link id='logo' to='/'>
-            Nutrilist
+            <i class='lab la-envira'></i>Nutrilist
           </Link>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
+          <Link to='/about'>
+            <i id='question' class='las la-question-circle'></i>
+          </Link>
         </ul>
       </nav>
     );

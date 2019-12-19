@@ -4,10 +4,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 body {
   margin: 0px;
   background-color: #faf6d6;
@@ -36,8 +32,7 @@ nav > ul {
   margin: 0px;
 }
 nav > ul > a {
-  margin: 20px;
-  font-family: Arial;
+  margin: 20px 0;
   text-decoration: none;
 }
 nav > ul > a:visited {
@@ -49,6 +44,13 @@ nav > ul > a:hover {
 #logo {
   margin-right: auto;
   text-decoration: none;
+}
+#logo > i {
+  color: hsl(163, 77%, 40%);
+}
+
+#question {
+  font-size: 1.3rem;
 }
 
 .searchForm {
