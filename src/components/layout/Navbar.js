@@ -5,12 +5,12 @@ export class Navbar extends Component {
   render() {
     return (
       <nav>
-        <ul>
+        <ul className='container'>
           <Link id='logo' to='/'>
-            <i class='lab la-envira'></i>Nutrilist
+            <i className='lab la-envira'></i>Nutrilist
           </Link>
           <Link to='/about'>
-            <i id='question' class='las la-question-circle'></i>
+            <i id='question' className='las la-question-circle'></i>
           </Link>
         </ul>
       </nav>

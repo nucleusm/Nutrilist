@@ -3,11 +3,18 @@
 .App {
   text-align: center;
 }
-
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 body {
   margin: 0px;
   background-color: #faf6d6;
   font-family: 'Muli', sans-serif;
+}
+main {
+  flex: 1;
 }
 a:link {
   color: rgb(8, 63, 48);
@@ -55,11 +62,10 @@ nav > ul > a:hover {
 
 .searchForm {
   display: flex;
-  justify-content: center;
 }
 
 .searchForm > .searchInput {
-  width: 40%;
+  width: 100%;
   font-weight: 300;
   height: 40px;
   border: none;
@@ -113,8 +119,8 @@ input[type='submit'] {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  background-color: #faf6d6;
+  flex-shrink: 0;
   height: 2.5rem; /* Footer height */
 }
 @media (max-width: 450px) {

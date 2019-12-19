@@ -86,8 +86,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
-          <Navbar />
+        <Navbar />
+        <main className='container'>
           <Alert
             alert={this.state.alert}
             emptyFoods={this.state.emptyFoods}
@@ -97,7 +97,7 @@ class App extends Component {
             <Route
               exact
               path='/'
-              render={props => (
+              render={() => (
                 <div>
                   <Search
                     searchFoods={this.searchFoods}
@@ -122,8 +122,8 @@ class App extends Component {
               )}
             />
           </Switch>
-          <Footer />
-        </div>
+        </main>
+        <Footer />
       </Router>
     );
   }

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import FoodItem from './FoodItem.js';
+import PropTypes from 'prop-types';
 
 export class Foods extends Component {
+  static propTypes = {
+    foods: PropTypes.array.isRequired
+  };
   render() {
     return (
       <div>

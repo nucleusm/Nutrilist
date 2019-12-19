@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 export class FoodItem extends Component {
+  static propTypes = {
+    food: PropTypes.object.isRequired
+  };
   render() {
     const { food_name } = this.props.food;
     return (

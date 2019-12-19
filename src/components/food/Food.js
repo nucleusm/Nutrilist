@@ -1,9 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Food extends Component {
   componentDidMount() {
     this.props.getFood(this.props.match.params.food_name);
   }
+  static propTypes = {
+    getFood: PropTypes.func.isRequired
+  };
   render() {
     const {
       food_name,
