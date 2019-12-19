@@ -1,50 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export class Search extends Component {
-  state = {
-    text: ''
-  };
-  static propTypes = {
-    searchFoods: PropTypes.func.isRequired,
-    clearFoods: PropTypes.func.isRequired,
-    setAlert: PropTypes.func.isRequired
-  };
-  onSubmit = e => {
+const Search = ({ clearFoods, searchFoods, setAlert }) => {
+  const [text, setText] = useState();
+
+  const onSubmit = e => {
     e.preventDefault();
-    if (this.state.text === '') {
-      this.props.setAlert('Please enter something');
+    if (text === '') {
+      setAlert('Please enter something');
     } else {
-      this.props.searchFoods(this.state.text);
-      this.setState({ text: '' });
+      searchFoods(text);
+      setText('');
     }
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  const onChange = e => setText(e.target.value);
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.onSubmit} className='searchForm'>
-          <input
-            type='text'
-            name='text'
-            className='searchInput'
-            placeholder='Search for a food product...'
-            value={this.state.text}
-            onChange={this.onChange}
-          />
-          <input type='submit' value='Search' className='search-button' />
-          <button
-            onClick={this.props.clearFoods}
-            className='search-button search-clear'
-          >
-            Clear
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <form onSubmit={onSubmit} className='searchForm'>
+        <input
+          type='text'
+          name='text'
+          className='searchInput'
+          placeholder='Search for a food product...'
+          value={text}
+          onChange={onChange}
+        />
+        <input type='submit' value='Search' className='search-button' />
+        <button onClick={clearFoods} className='search-button search-clear'>
+          Clear
+        </button>
+      </form>
+    </div>
+  );
+};
+
+Search.propTypes = {
+  searchFoods: PropTypes.func.isRequired,
+  clearFoods: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired
+};
 
 export default Search;

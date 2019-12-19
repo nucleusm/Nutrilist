@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export class Food extends Component {
-  componentDidMount() {
-    this.props.getFood(this.props.match.params.food_name);
-  }
-  static propTypes = {
-    getFood: PropTypes.func.isRequired
-  };
-  render() {
-    const {
-      food_name,
-      serving_weight_grams,
-      nf_calories,
-      nf_total_carbohydrate,
-      nf_sugars,
-      nf_protein,
-      nf_sodium,
-      nf_total_fat,
-      nf_saturated_fat
-    } = this.props.food;
-    return (
+const Food = ({ food, getFood, match }) => {
+  useEffect(() => {
+    getFood(match.params.food_name);
+    // eslint-disable-next-line
+  }, []);
+
+  const {
+    food_name,
+    serving_weight_grams,
+    nf_calories,
+    nf_total_carbohydrate,
+    nf_sugars,
+    nf_protein,
+    nf_sodium,
+    nf_total_fat,
+    nf_saturated_fat
+  } = food;
+
+  return (
+    <Fragment>
+      <Link to='/'>Go back</Link>
       <div className='center-page'>
         <h2>{food_name}</h2>
         <ul className='nutrition-list'>
@@ -34,8 +36,12 @@ export class Food extends Component {
           <li>saturated fat: {nf_saturated_fat}</li>
         </ul>
       </div>
-    );
-  }
-}
+    </Fragment>
+  );
+};
+
+Food.propTypes = {
+  getFood: PropTypes.func.isRequired
+};
 
 export default Food;
