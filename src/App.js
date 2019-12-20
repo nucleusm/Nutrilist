@@ -75,7 +75,7 @@ const App = () => {
   };
 
   const clearFoods = () => {
-    setFoods(foods);
+    setFoods([]);
     setLoading(false);
     setAlert(null);
   };
